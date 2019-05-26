@@ -6,6 +6,28 @@ import static org.junit.jupiter.api.Assertions.*;
 public class Main {
 
     @Test
+    public void divideTwoIntegers(){
+        assertEquals(3, DivideTwoIntegers.divide(10, 3));
+        assertEquals(3, DivideTwoIntegers.divide(9, 3));
+        assertEquals(1, DivideTwoIntegers.divide(1, 1));
+        assertEquals(0, DivideTwoIntegers.divide(1, 2));
+        assertEquals(-5, DivideTwoIntegers.divide(21, -4));
+        assertEquals(-5, DivideTwoIntegers.divide(-21, 4));
+    }
+
+    @Test
+    public void palindromeNumber(){
+        assertFalse(PalindromeNumber.isPalindrome(123));
+        assertFalse(PalindromeNumber.isPalindrome(12));
+        assertFalse(PalindromeNumber.isPalindrome(13));
+        assertTrue(PalindromeNumber.isPalindrome(1));
+        assertTrue(PalindromeNumber.isPalindrome(11));
+        assertTrue(PalindromeNumber.isPalindrome(1111));
+        assertTrue(PalindromeNumber.isPalindrome(121));
+        assertFalse(PalindromeNumber.isPalindrome(-121));
+    }
+
+    @Test
     public void binarySearch(){
         int[] nums = {0, 1, 2, 4, 5};
         int target = 4;
