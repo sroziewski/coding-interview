@@ -10,9 +10,14 @@ public class DivideTwoIntegers {
             return Integer.MIN_VALUE;
         }
 
-        int acc = 0, quotient = 0;
+        int quotient = 0;
         int unsignedDivisor= divisor, unsignedDividend=dividend;
-        if(dividend<0){
+        int add = 0;
+        if(dividend==Integer.MIN_VALUE){
+            unsignedDividend = Integer.MAX_VALUE;
+            add++;
+        }
+        else if(dividend<0){
             unsignedDividend = -dividend;
         }
         if(divisor<0){
@@ -26,20 +31,15 @@ public class DivideTwoIntegers {
         else if(dividend<0||divisor<0){
             sign = -1;
         }
-
-        while (true){
-            if(unsignedDivisor>unsignedDividend) {
-                return 0;
-            }
-            acc += unsignedDivisor;
-            if(acc>=unsignedDividend) {
-                if (acc == unsignedDividend) {
-                    quotient++;
-                }
-                return sign < 0 ? -quotient : quotient;
-            }
+        if(unsignedDivisor>unsignedDividend) {
+            return 0;
+        }
+        while (unsignedDividend>=unsignedDivisor){
+            unsignedDividend -= unsignedDivisor;
             quotient++;
         }
+        quotient+=add;
+        return sign < 0 ? -quotient : quotient;
     }
 }
 

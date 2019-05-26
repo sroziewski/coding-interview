@@ -7,6 +7,8 @@ public class Main {
 
     @Test
     public void divideTwoIntegers(){
+        assertEquals(Integer.MIN_VALUE/2, DivideTwoIntegers.divide(Integer.MIN_VALUE, 2));
+        assertEquals(Integer.MAX_VALUE/2, DivideTwoIntegers.divide(Integer.MAX_VALUE, 2));
         assertEquals(3, DivideTwoIntegers.divide(10, 3));
         assertEquals(3, DivideTwoIntegers.divide(9, 3));
         assertEquals(1, DivideTwoIntegers.divide(1, 1));
