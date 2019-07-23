@@ -85,7 +85,7 @@ public class MyriadDirectoryProblem {
         public FileVisitResult visitFile(Path path , BasicFileAttributes attrs) {
             File file = path.toFile();
             if(file.isFile()){
-                weight += Math.toIntExact(file.length());
+                weight += file.length();
             }
             return FileVisitResult.CONTINUE;
         }
