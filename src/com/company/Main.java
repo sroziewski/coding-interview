@@ -1,6 +1,8 @@
 package com.company;
 
 import org.junit.jupiter.api.Test;
+
+import static com.company.CompareVersionNumbers.compareVersion;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class Main {
@@ -81,6 +83,26 @@ public class Main {
         assertEquals(3513, BinarySearch.squareRoot(12345678));
         assertEquals(46340, BinarySearch.squareRoot(2147395600));
         assertEquals(46339, BinarySearch.squareRoot(2147395599));
+    }
+
+    @Test
+    public void longestPalindromeTest(){
+        assertEquals("d", LongestPalindromicSubstring.longestPalindrome("abcd"));
+        assertEquals("aba", LongestPalindromicSubstring.longestPalindrome("abacdgfdcaba"));
+        assertEquals("aba", LongestPalindromicSubstring.longestPalindrome("babad"));
+        assertEquals("tattarrattat", LongestPalindromicSubstring.longestPalindrome("123tattarrattat43"));
+        assertEquals("bb", LongestPalindromicSubstring.longestPalindrome("cbbd"));
+    }
+
+    @Test
+    public void compareVersionTest(){
+        assertEquals(0, compareVersion("1.01", "1.001"));
+        assertEquals(0, compareVersion("00001.000", "01.00.0000000"));
+        assertEquals(0, compareVersion("1.0", "1.0.0"));
+        assertEquals(1, compareVersion("1.0.1", "1"));
+        assertEquals(-1, compareVersion("0.1", "1.1"));
+        assertEquals(-1, compareVersion("7.5.2.4", "7.5.3"));
+        assertEquals(1, compareVersion("17.0005.2.4", "17.5.2"));
     }
 
     /*@Test
